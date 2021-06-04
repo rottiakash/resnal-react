@@ -112,16 +112,12 @@ const Subject: React.SFC<SubjectProps> = () => {
       subjectCode: subject,
     },
   });
-  const [
-    loadSems,
-    { called: sCalled, loading: sLoading, data: sData },
-  ] = useLazyQuery(GET_SEMS, { variables: { batch } });
-  const [
-    loadSubs,
-    { called: subCalled, loading: subLoading, data: subData },
-  ] = useLazyQuery(GET_SUBS, {
-    variables: { batch, sem: Number.parseInt(sem) },
-  });
+  const [loadSems, { called: sCalled, loading: sLoading, data: sData }] =
+    useLazyQuery(GET_SEMS, { variables: { batch } });
+  const [loadSubs, { called: subCalled, loading: subLoading, data: subData }] =
+    useLazyQuery(GET_SUBS, {
+      variables: { batch, sem: Number.parseInt(sem) },
+    });
 
   return (
     <div>
@@ -259,7 +255,6 @@ const Subject: React.SFC<SubjectProps> = () => {
                       Section
                     </InputLabel>
                     <Select
-                      required
                       style={{ color: "white" }}
                       labelId="demo-simple-select-placeholder-label-label"
                       id="demo-simple-select-placeholder-label"
@@ -388,11 +383,11 @@ const Subject: React.SFC<SubjectProps> = () => {
                     onClick={() =>
                       section === ""
                         ? window.open(
-                            `https://graph.resnal.ml/script/subjectwize/${batch}/${sem}/${subject}/${yearBack}/${backLog}`,
+                            `http://localhost:4000/script/subjectwize/${batch}/${sem}/${subject}/${yearBack}/${backLog}`,
                             "_blank"
                           )
                         : window.open(
-                            `https://graph.resnal.ml/script/subjectwize/${batch}/${sem}/${subject}/${yearBack}/${backLog}/${section}`,
+                            `http://localhost:4000/script/subjectwize/${batch}/${sem}/${subject}/${yearBack}/${backLog}/${section}`,
                             "_blank"
                           )
                     }

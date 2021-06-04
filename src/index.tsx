@@ -5,15 +5,9 @@ import App from "./App";
 import * as serviceWorker from "./serviceWorker";
 import ApolloClient from "apollo-boost";
 import { ApolloProvider } from "@apollo/react-hooks";
-import * as firebase from "firebase/app";
-import "firebase/analytics";
-import firebaseConfig from "./firebase";
-
-// Initialize Firebase
-firebase.initializeApp(firebaseConfig);
 
 const client = new ApolloClient({
-  uri: "https://graph.resnal.ml",
+  uri: "http://localhost:4000",
 });
 ReactDOM.render(
   <React.StrictMode>

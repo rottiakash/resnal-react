@@ -94,10 +94,8 @@ const Batch: React.SFC<BatchProps> = () => {
       backLog,
     },
   });
-  const [
-    loadSems,
-    { called: sCalled, loading: sLoading, data: sData },
-  ] = useLazyQuery(GET_SEMS, { variables: { batch } });
+  const [loadSems, { called: sCalled, loading: sLoading, data: sData }] =
+    useLazyQuery(GET_SEMS, { variables: { batch } });
 
   return (
     <div>
@@ -232,7 +230,6 @@ const Batch: React.SFC<BatchProps> = () => {
                       Section
                     </InputLabel>
                     <Select
-                      required
                       style={{ color: "white" }}
                       labelId="demo-simple-select-placeholder-label-label"
                       id="demo-simple-select-placeholder-label"
@@ -304,11 +301,11 @@ const Batch: React.SFC<BatchProps> = () => {
                     onClick={() =>
                       section === ""
                         ? window.open(
-                            `https://graph.resnal.ml/script/batchwize/${batch}/${sem}/${yearBack}/${backLog}`,
+                            `http://localhost:4000/script/batchwize/${batch}/${sem}/${yearBack}/${backLog}`,
                             "_blank"
                           )
                         : window.open(
-                            `https://graph.resnal.ml/script/batchwize/${batch}/${sem}/${yearBack}/${backLog}/${section}`,
+                            `http://localhost:4000/script/batchwize/${batch}/${sem}/${yearBack}/${backLog}/${section}`,
                             "_blank"
                           )
                     }
@@ -322,11 +319,11 @@ const Batch: React.SFC<BatchProps> = () => {
                     onClick={() =>
                       section === ""
                         ? window.open(
-                            `https://graph.resnal.ml/script/exportall/${batch}/${sem}/${yearBack}/${backLog}`,
+                            `http://localhost:4000/script/exportall/${batch}/${sem}/${yearBack}/${backLog}`,
                             "_blank"
                           )
                         : window.open(
-                            `https://graph.resnal.ml/script/exportall/${batch}/${sem}/${yearBack}/${backLog}/${section}`,
+                            `http://localhost:4000/script/exportall/${batch}/${sem}/${yearBack}/${backLog}/${section}`,
                             "_blank"
                           )
                     }
